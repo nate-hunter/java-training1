@@ -28,15 +28,15 @@ class StudentTest {
 	
 	// VARIABLES
 	private static int id = 10;
-	String userId;
-	String name;
-	String ssn;
-	String email;
-	String phone;
-	String city;
-	String state;
-	double balance;
-	String currentCourse;
+	private String userId;
+	private String name;
+	private String ssn;
+	private String email;
+	private String phone;
+	private String city;
+	private String state;
+	private double balance = 0;
+	private String currentCourse;
 //	ArrayList<String> courses = new ArrayList<String>();
 	
 	
@@ -45,7 +45,13 @@ class StudentTest {
 		id++;
 		this.ssn = ssn;
 		this.name = name;
-		email = name + "@learnJava.com";
+		email = name.toLowerCase() + "@learnJava.com";
+		/*
+		void createEmailID(){
+			emailID = name.toLowerCase().replace(" ", "")+"@university.edu";
+			System.out.println("The Email ID is " + emailID);
+		}
+		*/
 		setUserId();
 		System.out.println(name + ", Your email is: " + email + ". Your Student ID is: " + userId);
 	}
@@ -55,6 +61,17 @@ class StudentTest {
 		int randomNum = (int) (Math.random() * 10000);
 		String last4Ssn = ssn.substring(ssn.length() - 4);
 		userId = id + "" + randomNum + last4Ssn;
+		/*
+		public void setUserID() {
+			int max = 9000;
+			int min = 1000;
+			int random = (int) (Math.random() * (max - min));
+			random = random + min;
+			System.out.println(random);
+			userID = ID + "" + random + ssn.substring(3, 7);
+			System.out.println("User ID: " + userID);
+		}
+		*/
 	}
 	
 	public void setPhone(String phone){
@@ -81,7 +98,6 @@ class StudentTest {
 		return state;
 	}
 	
-	// enroll(), //pay(), //checkBalance(), //toString(), showCourses()
 	public void enroll(String name){
 		double courseCost = 1500;
 		balance -= courseCost;
