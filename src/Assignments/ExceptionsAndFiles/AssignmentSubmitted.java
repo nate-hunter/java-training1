@@ -69,15 +69,15 @@ public class AssignmentSubmitted {
 				}
 				
 				if (letterCount == 0) {
-					throw new LetterException(pw);					
+					throw new LetterExceptionSub(pw);					
 				} else if (numberCount == 0) {
-					throw new NumberException(pw);					
+					throw new NumberExceptionSub(pw);					
 				} else if (specialCount == 0) {
-					throw new SpecialCharacterException(pw);					
+					throw new SpecialCharacterExceptionSub(pw);					
 				} else {
 					System.out.println("VALID PASSWORD");
 				}
-			} catch (LetterException | NumberException | SpecialCharacterException e) {
+			} catch (LetterExceptionSub | NumberExceptionSub | SpecialCharacterExceptionSub e) {
 				System.out.println("ERROR: Invalid Password");
 				System.out.println(e.toString());
 			} 
@@ -120,11 +120,11 @@ class InvalidCharacterException extends Exception {
 	}
 }
 
-class LetterException extends Exception {
+class LetterExceptionSub extends Exception {
 
 	String passWord;
 	
-	LetterException(String pw) {
+	LetterExceptionSub(String pw) {
 		this.passWord = pw;
 	}
 	
@@ -133,10 +133,11 @@ class LetterException extends Exception {
 	}
 }
 
-class NumberException extends Exception {
+class NumberExceptionSub extends Exception {
+
 	String passWord;
 	
-	NumberException(String pw) {
+	NumberExceptionSub(String pw) {
 		this.passWord = pw;
 	}
 	
@@ -145,10 +146,11 @@ class NumberException extends Exception {
 	}
 }
 
-class SpecialCharacterException extends Exception {
+class SpecialCharacterExceptionSub extends Exception {
+
 	String passWord;
 	
-	SpecialCharacterException(String pw) {
+	SpecialCharacterExceptionSub(String pw) {
 		this.passWord = pw;
 	}
 	

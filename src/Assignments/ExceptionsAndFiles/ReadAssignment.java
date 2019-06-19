@@ -71,8 +71,8 @@ public class ReadAssignment {
 					} else {
 //						System.out.println(" {<-INVALID CHARACTER '" + pw.substring(j, j+1) + "' }");
 						try { 
-							throw new InvalidCharacterException(pw.substring(j, j+1)); 
-						} catch(InvalidCharacterException e){ 
+							throw new InvalidCharactException(pw.substring(j, j+1)); 
+						} catch(InvalidCharactException e){ 
 							System.out.println("  " + e.toString()); }
 					}
 				}	
@@ -80,15 +80,15 @@ public class ReadAssignment {
 				System.out.println("\nLetters: " + letterCount + " || " + "Numbers: " + numberCount + " || " + "Special Characters: " + specialCount + " ||TOTAL|| " + (letterCount + numberCount + specialCount));
 				
 				if (letterCount == 0) {
-					throw new LetterException(pw);					
+					throw new LettersException(pw);					
 				} else if (numberCount == 0) {
-					throw new NumberException(pw);					
+					throw new NumbersException(pw);					
 				} else if (specialCount == 0) {
-					throw new SpecialCharacterException(pw);					
+					throw new SpecialCharactersException(pw);					
 				} else {
 					System.out.println(" ~~VALID PASSWORD~~");
 				}
-			} catch (LetterException | NumberException | SpecialCharacterException e) {
+			} catch (LettersException | NumbersException | SpecialCharactersException e) {
 				System.out.print("| *Invalid Password: ");
 				System.out.println(e.toString());
 			} 
@@ -115,57 +115,57 @@ public class ReadAssignment {
 			System.out.print("[" + y + "]: " + dataArr[y] + " // ");
 		}
 		
-//		System.out.println(Arrays.toString(dataArr));
+		System.out.println("\n\nArray Class: " + Arrays.toString(dataArr));
 
 		
 	}
 }
 
-class InvalidCharacterException extends Exception {
+class InvalidCharactException extends Exception {
 	String ch;
 	
-	InvalidCharacterException(String ch){
+	InvalidCharactException(String ch){
 		this.ch = ch;
 	}
 	
 	public String toString(){
-		return "InvalidCharacterException: " + ch;
+		return "InvalidCharactException: " + ch;
 	}
 }
 
-class LetterException extends Exception {
+class LettersException extends Exception {
 	String passWord;
 	
-	LetterException(String pw) {
+	LettersException(String pw) {
 		this.passWord = pw;
 	}
 	
 	public String toString(){
-		return "LetterException: " + passWord;
+		return "LettersException: " + passWord;
 	}
 }
 
-class NumberException extends Exception {
+class NumbersException extends Exception {
 	String passWord;
 	
-	NumberException(String pw) {
+	NumbersException(String pw) {
 		this.passWord = pw;
 	}
 	
 	public String toString(){
-		return "NumberException: " + passWord;
+		return "NumbersException: " + passWord;
 	}
 }
 
-class SpecialCharacterException extends Exception {
+class SpecialCharactersException extends Exception {
 	String passWord;
 	
-	SpecialCharacterException(String pw) {
+	SpecialCharactersException(String pw) {
 		this.passWord = pw;
 	}
 	
 	public String toString(){
-		return "SpecialCharacterException: " + passWord;
+		return "SpecialCharactersException: " + passWord;
 	}
 }
 
