@@ -16,8 +16,7 @@ public class PhoneNumberApp {
 		
 		String[] phoneNums = new String[9];
 		String phoneNum = null;
-		
-		
+			
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			for(int i = 0; i < phoneNums.length; i++) {
